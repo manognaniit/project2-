@@ -1,5 +1,7 @@
 package com.ourchatz.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +20,11 @@ public class UserController {
 		userDao.registerUser(user);
 		
 	}
+	 @RequestMapping(value = "/getUsers", method = RequestMethod.GET, headers = "Accept=application/json")  
+	 public List<User> getUsers()
+	 {
+		 List<User> users=userDao.listUsers();
+		return users;
+	 }
 
 }
