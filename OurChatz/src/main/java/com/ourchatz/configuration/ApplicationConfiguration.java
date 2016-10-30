@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.ourchatz.model.Blog;
+import com.ourchatz.model.Jobs;
 import com.ourchatz.model.User;
 
 @Configuration
@@ -49,7 +51,9 @@ public class ApplicationConfiguration {
 		LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(dataSource);
 		localSessionFactoryBuilder.addProperties(getHibernateProperties());
 		localSessionFactoryBuilder.addAnnotatedClass(User.class);
-	
+		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
+		
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	@Autowired
