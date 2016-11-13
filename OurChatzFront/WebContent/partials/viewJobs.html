@@ -1,0 +1,37 @@
+<div>
+<h1>VIEW JOBS</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+      <th>job id</th>
+        <th>Title</th>
+        <th>Description</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="blog in blogs">
+      <td>{{blog.blogId}}</td>
+        <td>{{blog.title}}</td>
+        <td>{{blog.description}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editblog" ng-click="editBlog(blog)">Approve</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deleteblog" ng-click="editBlog(blog)">Disapprove</button></td>
+      </tr>
+       </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
