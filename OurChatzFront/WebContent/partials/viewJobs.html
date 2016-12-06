@@ -1,0 +1,49 @@
+<div>
+<h1>VIEW JOBS</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+      <th>job id</th>
+        <th>Companyname</th>
+        <th>Role</th>
+        <th>Skills</th>
+        <th>Eligibility</th>
+        <th>URL</th>
+        <th>CTC</th>
+        <th>Drive Date</th>
+        <th>Company Location</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="job in jobs">
+      <td>{{job.jobId}}</td>
+        <td>{{job.companyName}}</td>
+        <td>{{job.role}}</td>
+        <td>{{job.skillsRequired}}</td>
+        <td>{{job.eligibility}}</td>
+        <td>{{job.companyUrl}}</td>
+        <td>{{job.ctc}}</td>
+        <td>{{job.interviewDate}}</td>
+        <td>{{job.companyAddress}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#editjobs" ng-click="editJobs(job)">Edit</button></td>
+         <td><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#deletejobs" ng-click="editJobs(job)">Delete</button></td>
+      </tr>
+       </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

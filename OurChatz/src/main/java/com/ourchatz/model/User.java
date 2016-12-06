@@ -3,6 +3,9 @@ package com.ourchatz.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class User {
@@ -12,6 +15,17 @@ public class User {
 	private String username;
 	private String password;
 	private String dob;
+	private String role;
+	@Transient
+	private MultipartFile file;
+	@Transient
+	private String imageData;
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	public int getId() {
 		return id;
 	}
@@ -36,5 +50,10 @@ public class User {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

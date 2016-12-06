@@ -1,0 +1,51 @@
+  <div>
+  
+  
+  
+  <button type="button"  data-toggle="modal" data-target="#myModal">Add New Blog</button>
+  </div>
+  
+  
+  
+  <div>
+Enter Technology:  <input type="text"  ng-model="search">&nbsp&nbsp<span class="glyphicon glyphicon-search"></span>
+    <hr></hr>
+    <table class="table table-striped">
+    <tr>
+    <th>Job ID</th>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Skills Required</th>
+    <th>Eligibility Criteria</th>
+    <th>Date of interview</th>
+     <th>Approve</th>
+      <th>Disapprove</th>
+    </tr>
+        <tr ng-repeat="resource in jobs | filter:search">
+             <td>{{resource.jobId}}</td>
+            <td>{{ resource.company}}</td>
+            <td>{{ resource.role}}</td>
+            <td>{{ resource.skillsRequired}}</td>
+            <td>{{ resource.eligibilityCriteria}}</td>
+            <td>{{ resource.dateOfInterview}}</td>
+            <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#applyJob">Apply</button></td>
+           
+        </tr>    
+    </table>
+    <div>
+  <!-- Modal -->
+  <div class="modal fade" id="applyJob" role="dialog">
+    <div class="modal-dialog">
+    
+     
+
+        <div class="modal-body">
+       <h1>You have successfully applied for this job. We will get back to you shortly</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>

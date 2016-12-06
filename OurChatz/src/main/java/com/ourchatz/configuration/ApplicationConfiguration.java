@@ -13,7 +13,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.ourchatz.model.Blog;
+import com.ourchatz.model.Forum;
+import com.ourchatz.model.Jobs;
 import com.ourchatz.model.User;
 
 @Configuration
@@ -49,7 +53,10 @@ public class ApplicationConfiguration {
 		LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(dataSource);
 		localSessionFactoryBuilder.addProperties(getHibernateProperties());
 		localSessionFactoryBuilder.addAnnotatedClass(User.class);
-	
+		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
+		
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	@Autowired
@@ -59,6 +66,12 @@ public class ApplicationConfiguration {
 		HibernateTransactionManager hibernateTransactionManager=new HibernateTransactionManager(sessionFactory);
 		return hibernateTransactionManager;
 		
+	}
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+	    CommonsMultipartResolver resolver=new CommonsMultipartResolver();
+	    resolver.setDefaultEncoding("utf-8");
+	    return resolver;
 	}
 
 }
